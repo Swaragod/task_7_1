@@ -44,10 +44,12 @@ def get_shop_list_by_dishes(dishes, person_count):
             ingridient_info['quantity'] = total_amount
             shop_list[ingridient['ingredient_name']] = ingridient_info
           else:
+            ingridient_info = {}
+            ingridient_info['measure'] = ingridient['measure']
             total_amount = int(ingridient['quantity']) * person_count
             ingridient_info['quantity'] = total_amount + shop_list[ingridient['ingredient_name']]['quantity']
             shop_list[ingridient['ingredient_name']] = ingridient_info
     return(shop_list)
 
 
-pprint(get_shop_list_by_dishes(['Фахитос', 'Омлет'], 4))
+pprint(get_shop_list_by_dishes(['Омлет', 'Фахитос', 'Омлет'], 1))
